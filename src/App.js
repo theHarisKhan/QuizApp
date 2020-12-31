@@ -16,12 +16,21 @@ function App() {
     fetch(API_URL)
       .then((res) => res.json())
       .then((data) => {
-        setQuestions(data.results)
-        console.log(data.results)
+        const questions = data.results.map((question) => 
+        ({
+          ...question,
+          answers: [
+            question.correct_answer,
+            ...question.incorrect_answers,
+          ].sort(() => Math.random() - 0.5),
+        }))
+
+        setQuestions(questions)
+        // console.log(questions)
       })
   },[])
 
-  console.log(currentIndex)
+  // console.log(`This is Console ${questions}`)
 
   const handleAnswer = (answer) => {
     if (!showAnswers){
@@ -49,14 +58,15 @@ function App() {
           ) : (
               <Questions 
                 key={currentIndex}
-                index={currentIndex}
-                Qst={questions[currentIndex]}
+                Index={currentIndex}
+                Qstlength={questions.length}
+                data={questions[currentIndex]}
                 showAnswers={showAnswers}
                 handleAnswer={handleAnswer}
                 handleNxtQst={handleNxtQst}
               />
           )) : (
-            <h1>I am Loading</h1>
+            <h1 className="Loading">Loading...</h1>
       )}
     </div>
   );

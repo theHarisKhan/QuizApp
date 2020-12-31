@@ -2,36 +2,25 @@ import React from 'react'
 
 function Questions({
     showAnswers, 
-    Qst, 
     handleAnswer, 
-    index, 
-    handleNxtQst
+    handleNxtQst,
+    Index,
+    Qstlength,
+    data: {question, answers, correct_answer}
 }) {
-
-    const ShuffleAnswers = [Qst.correct_answer, ...Qst.incorrect_answers].sort(
-        () => Math.random() - 0.5
-    )
-
-    // for checkbtn correct answers
-    // const CheckIt = (numb) => {
-    //     return (
-    //         Qst.correct_answer === ShuffleAnswers[numb] ?
-    //         'answerBtn active' : 'answerBtn'
-    //     )
-    // }
 
     return (
         <div className="question--box">
           <div className="info--col">
-            <h2>Question {index+1} /6</h2>
+            <h2>Question {Index+1} / {Qstlength}</h2>
             <h3 className="question"
-                dangerouslySetInnerHTML={{ __html: Qst.question}}
+                dangerouslySetInnerHTML={{ __html: question}}
             />
           </div>
           <div className="btns--col"> 
-            {ShuffleAnswers.map((answer,index) => {
+            {answers.map((answer,index) => {
                 const bgClr = showAnswers 
-                    ? answer === Qst.correct_answer 
+                    ? answer === correct_answer 
                         ? "answerBtn true" 
                         : "answerBtn false" 
                     : "answerBtn"

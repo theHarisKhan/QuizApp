@@ -119,6 +119,10 @@ body {
   top: 14%;
 }
 
+.Loading {
+  margin-top: 30%;
+}
+
 @media (max-width: 797px) {
   .App .App--title {
     font-size: 50px;
