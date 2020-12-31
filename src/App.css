@@ -1,38 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background: #252424;
+  color: #fff;
+}
+
 .App {
+  margin: 26px auto;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App .App--title {
+  font-size: 72px;
+  background: -webkit-linear-gradient(rgb(15, 247, 255), rgb(0, 140, 255));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.question--box {
+  width: 70%;
+  height: auto;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(323px, 1fr));
+  padding: 2rem;
+  margin-top: 3rem;
+  border-radius: 10px;
+  background: linear-gradient(rgb(16, 24, 24), rgb(0, 0, 0));
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.question--box .info--col {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  text-align: left;
+}
+
+.question--box .info--col > h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.question--box .info--col .question {
+  color: rgb(15, 247, 255);
+  font-weight: 100;
+  letter-spacing: 2px;
+  line-height: 1.4;
+}
+
+.question--box .btns--col {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  padding-left: 30px;
+  border-left: 2px solid #353232;
+}
+
+.question--box .btns--col > .answerBtn {
+  margin: 8px 0;
+}
+
+.answerBtn {
+  background: transparent;
   color: white;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  border: 2px solid rgb(0, 144, 163);
+  border-radius: 20px;
+  padding: 0.7rem;
+  cursor: pointer;
+  transition: border-color, font-weight 250ms ease;
 }
 
-.App-link {
-  color: #61dafb;
+.answerBtn:hover {
+  border-color: green;
+  font-weight: 700;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.answerBtn.true {
+  border-color: green;
+}
+
+.answerBtn.false {
+  border-color: red;
+}
+
+.answerBtn:active,
+.answerBtn:focus {
+  border-radius: 20px;
+  outline: none;
+  border-color: none;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.next--btn {
+  position: relative;
+  background: #00535e;
+  color: white;
+  width: 55%;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.next--btn::after {
+  position: absolute;
+  content: ">";
+  font-size: 2rem;
+  right: 5%;
+  top: 14%;
+}
+
+@media (max-width: 797px) {
+  .App .App--title {
+    font-size: 50px;
   }
-  to {
-    transform: rotate(360deg);
+  .question--box {
+    width: 90%;
+  }
+  .question--box .info--col {
+    text-align: center;
+  }
+  .question--box .btns--col {
+    margin-top: 20px;
+    padding-left: 0;
+    border-left: none;
   }
 }
