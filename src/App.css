@@ -28,11 +28,11 @@ body {
   height: auto;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(323px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   padding: 2rem;
   margin-top: 3rem;
   border-radius: 10px;
-  background: linear-gradient(rgb(16, 24, 24), rgb(0, 0, 0));
+  background: radial-gradient(rgb(17, 27, 27), rgb(0, 0, 0));
 }
 
 .question--box .info--col {
@@ -61,10 +61,6 @@ body {
   border-left: 2px solid #353232;
 }
 
-.question--box .btns--col > .answerBtn {
-  margin: 8px 0;
-}
-
 .answerBtn {
   background: transparent;
   color: white;
@@ -72,6 +68,7 @@ body {
   letter-spacing: 2px;
   border: 2px solid rgb(0, 144, 163);
   border-radius: 20px;
+  margin: 8px 0;
   padding: 0.7rem;
   cursor: pointer;
   transition: border-color, font-weight 250ms ease;
@@ -104,6 +101,8 @@ body {
   background: #00535e;
   color: white;
   width: 55%;
+  margin-left: 150px;
+  margin-top: 20px;
   font-size: 1rem;
   letter-spacing: 2px;
   border: none;
@@ -119,6 +118,59 @@ body {
   top: 14%;
 }
 
+.next--btn:hover.next--btn::after {
+  animation: translateX 1s ease infinite;
+}
+
+.Result--box {
+  padding: 6rem 6rem;
+  font-family: Consolas;
+  text-align: center;
+}
+
+.Result--box > h2 > .result--score {
+  font-size: 1.6em;
+  color: rgb(95, 183, 255);
+}
+
+.win {
+  font-size: 2.6em;
+  color: rgb(255, 217, 0);
+  margin-top: 10px;
+}
+
+.lose {
+  font-size: 2.6em;
+  color: rgb(255, 123, 0);
+  margin-top: 10px;
+}
+
+.playagn--btn {
+  margin-top: 20px;
+  padding: 1rem 2.6rem;
+  background: rgba(255, 217, 0);
+  border: none;
+  border-radius: 50px;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 900;
+  cursor: pointer;
+  transition: box-shadow 350ms ease;
+}
+
+.playagn--btn:hover {
+  box-shadow: 8px 10px 10px rgb(0, 0, 0);
+}
+
+@keyframes translateX {
+  0% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
 .Loading {
   margin-top: 30%;
 }
@@ -129,6 +181,7 @@ body {
   }
   .question--box {
     width: 90%;
+    padding: 2rem 1rem;
   }
   .question--box .info--col {
     text-align: center;
@@ -137,5 +190,9 @@ body {
     margin-top: 20px;
     padding-left: 0;
     border-left: none;
+  }
+  .next--btn {
+    width: 100%;
+    margin-left: 0;
   }
 }

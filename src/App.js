@@ -46,15 +46,28 @@ function App() {
     setCurrentIndex(currentIndex + 1)
   }
 
+  const PlayAGAIN = () =>{
+    setScore(0)
+    setShowResult(false)
+    setCurrentIndex(0)
+    window.location.reload()
+    // console.log('Play AGain call')
+  }
+
   return (
     <div className="App">
       <h1 className="App--title">QuizApP</h1>
       {questions.length > 0 ? (
           currentIndex >= questions.length  ? (
-            <>
-              <h1>Correct Answers are {score}</h1>
-              {/* <button onclick={() => PlayAGAIN()}>Play AGAIN</button> */}
-            </>
+            <div className="Result--box">
+              {score > 3 ? (
+                <h1 className="win">!!Congrats!!</h1>
+              ) : (
+                <h1 className="lose">!Try Again!</h1>
+              )}
+              <h2>Correct Answers are <span className="result--score">{score}</span> Out of {questions.length}</h2>
+              <button className="playagn--btn" onClick={() => PlayAGAIN()}>Play AGAIN</button>
+            </div>
           ) : (
               <Questions 
                 key={currentIndex}
