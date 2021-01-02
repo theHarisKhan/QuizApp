@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './App.css';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import Loader from 'react-loader-spinner'
 import Questions from './Questions';
 
 const API_URL = `https://opentdb.com/api.php?amount=6&category=18&difficulty=easy&type=multiple`
@@ -79,7 +81,13 @@ function App() {
                 handleNxtQst={handleNxtQst}
               />
           )) : (
-            <h1 className="Loading">Loading...</h1>
+            <Loader
+                className="Loading" 
+                type="Bars" 
+                color="#00BFFF" 
+                height={100} 
+                width={100} 
+                timeout={3000} />
       )}
     </div>
   );
