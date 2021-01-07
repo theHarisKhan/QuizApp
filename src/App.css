@@ -196,3 +196,9 @@ body {
     margin-left: 0;
   }
 }
+
+@media (max-width: 425px) {
+  .Result--box {
+    padding: 6rem 2rem;
+  }
+}
