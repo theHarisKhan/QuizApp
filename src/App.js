@@ -11,7 +11,6 @@ function App() {
   const [questions, setQuestions] = useState([])
   const [currentIndex, setCurrentIndex] = useState(0)
   const [score, setScore] = useState(0)
-  const [showResult, setShowResult] = useState(false)
   const [showAnswers, setShowAnswers] = useState(false)
 
   useEffect(() => {
@@ -50,7 +49,6 @@ function App() {
 
   const PlayAGAIN = () =>{
     setScore(0)
-    setShowResult(false)
     setCurrentIndex(0)
     window.location.reload()
     // console.log('Play AGain call')
